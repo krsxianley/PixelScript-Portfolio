@@ -8,7 +8,7 @@
     "tech": ["Mobile UX", "Data Visualization", "Figma"],
     "link": "#",
     "status": "COMPLETED",
-    "video": "assets/vid/fittrack-preview.mp4",
+    "video": "fittrack-preview.mp4",
     "gallery": ["assets/img/fittrack-1.png", "assets/img/fittrack-2.png", "assets/img/fittrack-3.png"]
   },
   {
@@ -20,7 +20,7 @@
     "tech": ["AI Chatbot", "GPS Tracking", "Figma"],
     "link": "#",
     "status": "ACTIVE_DEVELOPMENT",
-    "video": "assets/vid/dementra-preview.mp4",
+    "video": "dementra-preview.mp4",
     "gallery": ["assets/img/dementra-1.png", "assets/img/dementra-2.png", "assets/img/dementra-3.png"]
   },
   {
@@ -32,7 +32,7 @@
     "tech": ["Information Architecture", "Tourism UX", "Figma"],
     "link": "#",
     "status": "PROTOTYPE",
-    "video": "assets/vid/likhalokal-preview.mp4",
+    "video": "likhalokal-preview.mp4",
     "gallery": ["assets/img/likhalokal-static.png","assets/img/likhalokal-2.png", "assets/img/likhalokal-3.png"]
   },
   {
@@ -44,7 +44,7 @@
     "tech": ["Educational UX", "Interactive Prototyping"],
     "link": "#",
     "status": "COMPLETED",
-    "video": "assets/vid/hackademy-preview.mp4",
+    "video": "hackademy-preview.mp4",
     "gallery": ["assets/img/hackademy-1.png", "assets/img/hackademy-2.png", "assets/img/hackademy-3.png"]
   },
   {
