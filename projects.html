@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Christianne Ley</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="snap-container" id="home">
+
+    <div class="grid-overlay"></div>
+    <div class="glow-point" id="cursor-glow"></div>
+
+    <nav class="navbar">
+        <div class="logo">Pixel<span>Script</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="snap-section hero-special">
+            <div class="matrix-container hero-grid">
+                <div class="hero-text reveal-left">
+                    <div class="status-chip">
+                        <span class="pulse-dot"></span> ARCHIVE_V2.0
+                    </div>
+                    <h1 class="mega-title">PROJECT <br><span>ARCHIVE</span></h1>
+                    
+                    <p class="hero-description">
+                        An archive of my <strong>UI/UX projects</strong>, <strong>frontend developments</strong>, 
+                        and certifications, showcasing my journey in crafting <strong>intuitive interfaces</strong> 
+                        and user-centered digital experiences.
+                    </p>
+
+                    <div class="noise-overlay"></div>
+                    <div class="scanline"></div>
+
+                    <div class="hero-actions">
+                        <a href="#archive-deck" class="btn-primary magnetic-btn">
+                            <span class="btn-text">INITIATE_EXPLORATION</span>
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                        <div class="mouse-scroll-indicator">
+                            <div class="mouse-wheel"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual-3d reveal-right">
+                    <div class="laptop-wrapper">
+                        <div class="laptop-screen">
+                            <div class="ui-element tool-1"><i data-lucide="pen-tool"></i></div>
+                            <div class="ui-element tool-2"><i data-lucide="layers"></i></div>
+                            <div class="ui-element tool-3"><i data-lucide="mouse-pointer-2"></i></div>
+                            <div class="screen-content">
+                                <div class="code-line"></div>
+                                <div class="code-line"></div>
+                                <div class="code-line"></div>
+                            </div>
+                        </div>
+                        <div class="laptop-base"></div>
+                    </div>
+                    <div class="visual-glow"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="snap-section" id="archive-deck">
+            <div class="matrix-container">
+                <div class="section-context">
+                    <h2 class="section-title">CORE_<span>MODULES</span></h2>
+                    <p class="context-desc">
+                        Explore a curated collection of <strong>projects</strong> and <strong>certifications</strong> organized as interactive modules.
+                    </p>
+                </div>
+
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="project">PROJECTS</button>
+                    <button class="filter-btn" data-filter="certification">CERTIFICATIONS</button>
+                </div>
+                
+                <div id="perspective-deck-container" class="spotlight-stack">
+                    <div class="api-loader">
+                        <div class="pulse-dot"></div>
+                        <span>DECRYPTING_DATA_PACKETS...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="snap-section">
+            <div class="matrix-container">
+                <div class="section-context">
+                    <h2 class="section-title">SYSTEM_<span>UPLINK</span></h2>
+                    <p class="context-desc">Live synchronization with my development environment. Tracking real-time repository updates.</p>
+                </div>
+                <div class="hero-interface reveal-up">
+                    <div class="project-count-big">
+                        <span class="label">ACTIVE_REPOS</span>
+                        <span class="number">01</span>
+                    </div>
+                    <div id="github-profile-card" class="profile-main">
+                        <div class="api-loader">UPLINKING_GITHUB...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="minimal-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="logo">Pixel<span>Script</span></div>
+                <span class="copyright">© 2026 // CL-ARCHITECT</span>
+            </div>
+
+            <div class="name-chip">
+                <div class="online-indicator"></div>
+                <span class="dev-name">CHRISTIANNE LEY UBANA</span>
+            </div>
+
+            <div class="footer-right">
+                <a href="https://github.com/krsxianley" target="_blank" class="nav-icon" rel="noopener">
+                    <i data-lucide="github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/christianne-ley-266b15175/" target="_blank" class="nav-icon" rel="noopener">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="https://discord.com/users/682034323528089635" target="_blank" class="nav-icon" rel="noopener" title="Contact on Discord">
+                    <i data-lucide="bot-message-square"></i>
+                </a>            
+                <a href="#home" class="scroll-up-pill" id="scrollToTopBtn">
+                    <i data-lucide="chevron-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/projects.js"></script>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Ensure smooth scroll to top works with the footer button
+        const scrollBtn = document.getElementById('scrollToTopBtn');
+        if (scrollBtn) {
+            scrollBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
+</body>
+</html>

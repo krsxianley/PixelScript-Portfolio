@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Christianne Ley</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body class="snap-container">
+
+    <div class="grid-overlay"></div>
+    <div class="glow-point" id="cursor-glow"></div>
+
+    <nav class="navbar">
+        <div class="logo">Pixel<span>Script</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="snap-section hero-special">
+            <div class="matrix-container hero-grid">
+                <div class="hero-text reveal-left">
+                    <div class="status-chip">
+                        <span class="pulse-dot"></span> SYSTEM_UPLINK: READY
+                    </div>
+                    <h1 class="mega-title">INITIATE <br><span>CONTACT</span></h1>
+                    <p class="hero-description">
+                        Operating from UTC+8. Whether you have a <strong>Technical Inquiry</strong> 
+                        or a <strong>Design Collaboration</strong> proposal, 
+                        initiate a secure transmission below.
+                    </p>
+                    <div class="scanline"></div>
+                </div>
+
+                <div class="hero-visual-3d reveal-right">
+                    <div class="comms-wrapper">
+                        <div class="signal-pulse"></div>
+                        <div class="ui-element tool-1"><i data-lucide="mail"></i></div>
+                        <div class="ui-element tool-2"><i data-lucide="shield-check"></i></div>
+                        <div class="ui-element tool-3"><i data-lucide="terminal"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="snap-section">
+            <div class="matrix-container">
+                
+                <div class="interface-header reveal-up">
+                    <h2 class="section-subtitle">Secure Messaging Terminal</h2>
+                    <p class="section-tagline">Have a project in mind or just want to say hello? Initiate a transmission below and I'll respond within 24 hours.</p>
+                </div>
+
+                <div class="contact-interface-grid reveal-up">
+                    <form id="contact-form" class="terminal-form">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label>Full Name</label>
+                                <input type="text" name="user_name" placeholder="Enter your name" required>
+                                <div class="input-focus-line"></div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>Email Address</label>
+                                <input type="email" name="user_email" placeholder="email@address.com" required>
+                                <div class="input-focus-line"></div> 
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Subject</label>
+                            <input type="text" name="subject" placeholder="What is this regarding?" required>
+                            <div class="input-focus-line"></div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Message</label>
+                            <textarea name="message" rows="4" placeholder="Your project details or inquiry..." required></textarea>
+                            <div class="input-focus-line"></div>
+                        </div>
+
+                        <div class="form-footer">
+                            <button type="submit" id="submit-btn" class="btn-primary">
+                                <span class="btn-text">Send Message</span>
+                                <i data-lucide="send-horizontal"></i>
+                            </button>
+                            
+                            <div class="status-indicator">
+                                <span id="form-status">SYSTEM_READY</span>
+                                <div class="loading-bar-container">
+                                    <div id="progress-line" class="progress-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="socials-footer">
+                        <span class="connect-label">SYSTEM_UPLINK:</span>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/christianne-ley-266b15175/" target="_blank" rel="noopener" class="social-icon" title="LinkedIn Profile">
+                                <i data-lucide="linkedin"></i>
+                            </a>
+                            <a href="https://github.com/krsxianley" target="_blank" rel="noopener" class="social-icon" title="GitHub Repository">
+                                <i data-lucide="github"></i>
+                            </a>
+                            <a href="https://discord.com/users/Y682034323528089635" target="_blank" rel="noopener" class="social-icon" title="Contact on Discord">
+                                <i data-lucide="bot-message-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="toast-container" class="toast-container">
+    <div class="toast-icon">
+        <i data-lucide="check-circle-2"></i>
+    </div>
+    <div class="toast-content">
+        <div class="toast-title">SYSTEM_NOTIFICATION</div>
+        <div class="toast-message">Transmission successful. Data secured.</div>
+    </div>
+    <div class="toast-progress"></div>
+</div>
+        </section>
+    </main>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+            
+            <script src="js/contact.js"></script>
+            
+            <script>
+                lucide.createIcons();
+            </script>
+</body></body>
+</html>
