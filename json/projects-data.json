@@ -1,0 +1,74 @@
+[
+  {
+    "id": "fittrack",
+    "title": "FitTrack: Mobile Application",
+    "category": "PROJECT",
+    "category_type": "project",
+    "description": "A comprehensive mobile health interface focused on biometric data visualization, workout tracking, and personalized wellness goal setting with AI integration.",
+    "tech": ["Mobile UX", "Data Visualization", "Figma"],
+    "link": "#",
+    "status": "COMPLETED",
+    "video": "assets/vid/fittrack-preview.mp4",
+    "gallery": ["assets/img/fittrack-1.png", "assets/img/fittrack-2.png", "assets/img/fittrack-3.png"]
+  },
+  {
+    "id": "dementra",
+    "title": "Dementra: AI-Powered Smart Anklet & Dementia Care System",
+    "category": "PROJECT",
+    "category_type": "project",
+    "description": "AI-Powered Dementia Safety & Care. Real-time GPS tracking and health monitoring paired with a smart anklet concept.",
+    "tech": ["AI Chatbot", "GPS Tracking", "Figma"],
+    "link": "#",
+    "status": "ACTIVE_DEVELOPMENT",
+    "video": "assets/vid/dementra-preview.mp4",
+    "gallery": ["assets/img/dementra-1.png", "assets/img/dementra-2.png", "assets/img/dementra-3.png"]
+  },
+  {
+    "id": "likhalokal",
+    "title": "LIKHALOKAL: Tuklas, Kultura, Kabuhayan",
+    "category": "PROJECT",
+    "category_type": "project",
+    "description": "Promoting local products and tourism discovery in Talisay and Vinzons to support community livelihood.",
+    "tech": ["Information Architecture", "Tourism UX", "Figma"],
+    "link": "#",
+    "status": "PROTOTYPE",
+    "video": "assets/vid/likhalokal-preview.mp4",
+    "gallery": ["assets/img/likhalokal-static.png","assets/img/likhalokal-2.png", "assets/img/likhalokal-3.png"]
+  },
+  {
+    "id": "hackademy",
+    "title": "HACKADEMY",
+    "category": "PROJECT",
+    "category_type": "project",
+    "description": "Cybersecurity awareness platform making online safety and digital privacy education accessible to everyone.",
+    "tech": ["Educational UX", "Interactive Prototyping"],
+    "link": "#",
+    "status": "COMPLETED",
+    "video": "assets/vid/hackademy-preview.mp4",
+    "gallery": ["assets/img/hackademy-1.png", "assets/img/hackademy-2.png", "assets/img/hackademy-3.png"]
+  },
+  {
+    "id": "best-pitch",
+    "title": "BEST IN PITCH AWARD",
+    "category": "CERTIFICATE",
+    "category_type": "certification",
+    "description": "Awarded at the CNSC CCMS Pitching Event Expo for excellence in project presentation and technical innovation.",
+    "tech": ["Public Speaking", "Product Pitch", "Innovation"],
+    "link": "#",
+    "status": "VERIFIED",
+    "video": "assets/vid/pitch-event.mp4",
+    "gallery": ["assets/img/expo.jpg"]
+  },
+  {
+    "id": "dap-finalist",
+    "title": "TEAM DEMENTRA",
+    "category": "CERTIFICATE",
+    "category_type": "certification",
+    "description": "Official Certification of Finalists for the National DAP, recognizing the Dementra project on a national scale.",
+    "tech": ["Strategic Design", "Healthcare Solution", "Research"],
+    "link": "#",
+    "status": "VERIFIED",
+    "video": "assets/vid/dap-event.mp4",
+    "gallery": ["assets/img/dap.jpg"]
+  }
+]

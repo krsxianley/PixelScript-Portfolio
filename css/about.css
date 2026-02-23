@@ -1,0 +1,1163 @@
+/* --- ABOUT PAGE LAYOUT ENGINE --- */
+.snap-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none;
+    background: var(--bg-color);
+}
+.snap-container::-webkit-scrollbar { display: none; }
+
+/* --- ABOUT PAGE LAYOUT ENGINE --- */
+.snap-section {
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    scroll-snap-align: start;
+    position: relative;
+    padding: 60px 40px; 
+}
+
+/* THE COHESION WRAPPER */
+.command-center, 
+.matrix-container, 
+.map-dashboard {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+}
+
+/* --- TYPOGRAPHY & HEADERS --- */
+.hero-title {
+    font-size: clamp(1.8rem, 4vw, 3rem); /* Dynamically scales font size */
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.hero-title .iris-text {
+    font-size: 0.6em; /* Makes the job title slightly smaller than your name */
+    display: block;  /* Ensures it stays on its own line */
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.hero-title-sub {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.section-label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 5px;
+    color: var(--accent-iris);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.section-desc {
+    max-width: 700px;
+    /* Reduced from 50px or 40px to 20px */
+    margin-bottom: 25px; 
+    line-height: 1.6;
+    color: var(--text-dim);
+}
+
+.iris-text {
+    color: var(--accent-iris);
+    text-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* --- SECTION 1: IDENTITY --- */
+/* --- SECTION 1: IDENTITY REFINED --- */
+.profile-dashboard {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr; 
+    gap: 60px;
+    align-items: stretch; 
+    margin-top: 20px;
+}
+
+.profile-photo-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-profile-frame {
+    position: relative;
+    width: 100%;
+    height: 100%; 
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+}
+
+.bio-card-expanded {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    border-radius: 30px;
+    padding: 50px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bio-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-silver);
+    margin-bottom: 30px;
+    text-align: justify; /* Optional: makes the block of text look more structured */
+}
+
+.linkedin-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid var(--accent-iris);
+    border-radius: 100px;
+    color: var(--text-silver);
+    transition: 0.3s;
+}
+
+.linkedin-pill:hover {
+    background: var(--accent-iris);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* --- SECTION 2: BLUEPRINT SKILLS SYSTEM --- */
+.blueprint-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    background: rgba(139, 92, 246, 0.02);
+    min-height: 400px;
+    margin-top: 20px;
+}
+
+.blueprint-sidebar {
+    border-right: 1px solid rgba(139, 92, 246, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.category-item {
+    padding: 25px 30px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-item:hover {
+    color: var(--accent-iris);
+    padding-left: 35px;
+}
+
+.category-item.active {
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--accent-iris);
+    border-left: 4px solid var(--accent-iris);
+}
+
+.blueprint-display {
+    padding: 60px;
+    position: relative;
+    background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.03), transparent);
+}
+
+/* Skill Group Visibility */
+.skill-group-detailed {
+    display: none;
+    opacity: 0;
+    transform: translateX(10px);
+}
+
+.skill-group-detailed.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+    transition: 0.4s ease;
+}
+
+.skill-node {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.skill-node img { width: 45px; height: 45px; }
+
+.node-tag {
+    font-size: 0.65rem;
+    color: var(--accent-iris);
+    border: 1px solid var(--accent-iris);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    max-width: 400px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-top: 12px;
+    border-radius: 2px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent-iris);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Corner Accents */
+.corner { position: absolute; color: var(--accent-iris); opacity: 0.4; font-family: monospace; font-size: 1.2rem;}
+.tl { top: 15px; left: 15px; } .tr { top: 15px; right: 15px; }
+.bl { bottom: 15px; left: 15px; } .br { bottom: 15px; right: 15px; }
+
+/* --- SECTION 3: CLEAN MANIFESTO (REPLACES TRAJECTORY) --- */
+.clean-manifesto {
+    max-width: 850px;
+    margin-top: 20px;
+}
+
+.main-goal-text {
+    font-size: 1.35rem;
+    line-height: 1.7;
+    color: var(--text-silver);
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.interest-line {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.line-label {
+    font-family: 'JetBrains Mono', monospace; /* Use Courier if JetBrains isn't loaded */
+    font-size: 0.7rem;
+    color: var(--accent-iris);
+    letter-spacing: 2px;
+    opacity: 0.6;
+}
+
+.icon-set {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.icon-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    transition: 0.3s ease;
+}
+
+.icon-item i { width: 16px; height: 16px; stroke-width: 1.5px; }
+
+.icon-item:hover { color: var(--accent-iris); }
+
+/* --- SECTION 4: MAP BASE --- */
+/* --- ENHANCED MAP INTERFACE --- */
+.map-interface-wrapper {
+    width: 100%;
+    position: relative;
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), transparent);
+    border-radius: 40px;
+}
+
+.map-card-full {
+    height: 500px;
+    border-radius: 32px;
+    overflow: hidden;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    position: relative;
+}
+
+/* Vignette Effect to darken map edges */
+.map-card-full::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.6);
+    z-index: 500;
+}
+
+/* Floating HUD elements */
+.map-hud-left {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.hud-item {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 15px;
+    border-left: 3px solid var(--accent-iris);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.hud-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--accent-iris);
+    letter-spacing: 1px;
+}
+
+.hud-value {
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Enhanced Overlay */
+.map-overlay-data {
+    position: absolute;
+    bottom: 30px;
+    right: 30px; /* Moved to right for balance */
+    background: rgba(10, 10, 12, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 24px;
+    z-index: 1000;
+}
+
+.open-blueprint {
+    position: relative;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    background: rgba(139, 92, 246, 0.02);
+    padding: 60px 40px;
+    margin-top: 20px;
+}
+
+.blueprint-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.column-header {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-iris);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+    padding-bottom: 10px;
+}
+
+.skill-node {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.skill-node img { width: 35px; height: 35px; }
+
+.node-info h3 {
+    font-size: 0.95rem;
+    color: var(--text-silver);
+}
+
+.node-tag {
+    font-size: 0.6rem;
+    border: 1px solid var(--accent-iris);
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-left: 5px;
+    opacity: 0.8;
+}
+
+/* Mobile Fix */
+@media (max-width: 900px) {
+    .blueprint-columns { grid-template-columns: 1fr; }
+    .open-blueprint { padding: 40px 20px; }
+}
+
+/* --- SPECIFIC FIX FOR SKILLS SECTION --- */
+.skills-matrix {
+    /* If content is longer than screen, this ensures a smooth transition */
+    scroll-snap-align: start; 
+    align-items: flex-start; /* Align to top so scrolling starts at the header */
+}
+
+/* Ensure the glass deck doesn't get squeezed */
+.matrix-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- REFINED GLASS DECK LAYOUT --- */
+/* Container for the floating panels */
+.glass-shelf-system {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    /* Ensure there is no extra top margin pushing it away */
+    margin-top: 0; 
+    perspective: 1200px;
+}
+
+/* The Glass Module */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 30px;
+    padding: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Edge lighting */
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.glass-panel:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 20px rgba(139, 92, 246, 0.1);
+}
+
+.group-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-iris);
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    display: block;
+    opacity: 0.8;
+}
+
+.glass-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* --- THE INDIVIDUAL GLASS PILLS --- */
+.skill-pill {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+.skill-pill img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.skill-pill span {
+    font-size: 0.8rem;
+    color: var(--text-silver);
+    font-weight: 500;
+}
+
+/* Interactive Glows */
+.skill-pill:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateZ(20px); /* Lifts the pill inside the glass */
+}
+
+.section-desc {
+    max-width: 700px;
+    margin-bottom: 50px;
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Individual Skill Glows */
+.js-glow:hover { box-shadow: 0 0 30px rgba(247, 223, 30, 0.15); border-color: #f7df1e; }
+.react-glow:hover { box-shadow: 0 0 30px rgba(97, 218, 251, 0.15); border-color: #61dafb; }
+.typescript-glow:hover { box-shadow: 0 0 30px rgba(49, 120, 198, 0.15); border-color: #3178c6; }
+.tailwind-glow:hover { box-shadow: 0 0 30px rgba(56, 189, 248, 0.15); border-color: #38bdf8; }
+.figma-glow:hover { box-shadow: 0 0 30px rgba(242, 78, 30, 0.15); border-color: #f24e1e; }
+
+.matrix-header {
+    margin-bottom: 30px; /* Reduced from default to keep content on screen */
+}
+
+@media (max-width: 768px) {
+    .glass-shelf {
+        padding: 30px 20px;
+        gap: 30px;
+    }
+    .skill-pill {
+        min-height: 150px;
+        padding: 20px 10px;
+    }
+}
+
+.form-input {
+    background: rgba(255, 255, 255, 0.05); /* Subtle dark glass */
+    border: 1px solid rgba(139, 92, 246, 0.2); /* Iris border */
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    font-family: 'JetBrains Mono', monospace; /* If you have it */
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+}
+
+/* Container for all reviews */
+#feedback-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* The Grid Container */
+/* 3-Column Responsive Grid */
+.reviews-grid {
+    display: grid;
+    /* This line creates the 3-column magic */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* Individual Card Styling */
+.review-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+.review-card:hover {
+    border-color: #8b5cf6;
+    background: rgba(139, 92, 246, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+/* Responsive Media Queries (Crucial for IT projects) */
+@media (max-width: 1024px) {
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); } /* 2 columns for tablets */
+}
+
+@media (max-width: 768px) {
+    .reviews-grid { grid-template-columns: 1fr; } /* 1 column for phones */
+}
+
+/* Subtle "ID Tag" in the corner of each card */
+.review-card::before {
+    content: "LOG_DATA";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.6rem;
+    color: #8b5cf6;
+    opacity: 0.5;
+    font-family: monospace;
+}
+
+.review-name {
+    color: #8b5cf6;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.review-role {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.review-comment {
+    margin-top: 12px;
+    line-height: 1.6;
+    font-style: italic;
+    color: #e2e8f0;
+}
+
+/* --- SECTION 1: IDENTITY REFINED (COMPACT VERSION) --- */
+.command-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Reduced from 85vh to 70vh to pull the layout together */
+    min-height: 70vh; 
+}
+
+.profile-dashboard {
+    display: grid;
+    grid-template-columns: 0.7fr 2fr; /* Slightly smaller image col */
+    gap: 30px; /* Tighter gap */
+    align-items: center; 
+    margin-top: 15px;
+}
+
+.main-profile-frame {
+    position: relative;
+    width: 100%;
+    /* Reduced max-height from 400px to 320px */
+    max-height: 320px; 
+    aspect-ratio: 1 / 1; 
+    border-radius: 24px; /* Slightly tighter corners for a smaller box */
+    overflow: hidden;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+}
+
+.bio-card-expanded {
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(20px); 
+    backdrop-filter: blur(20px); 
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    border-radius: 24px;
+    padding: 35px; /* Reduced from 50px/40px */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bio-text {
+    font-size: 1.05rem; /* Slightly smaller text for a smaller card */
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.main-profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This is vital so the photo doesn't look squished */
+}
+
+/* RESPONSIVE CORRECTION */
+@media (max-width: 1024px) {
+    .snap-section { padding: 80px 20px; }
+    
+    .profile-dashboard {
+        grid-template-columns: 1fr; /* Stacks on tablet/mobile */
+        gap: 40px;
+    }
+
+    .main-profile-frame {
+        max-width: 380px; /* Prevents image from becoming huge on mobile */
+        margin: 0 auto;
+    }
+    
+    .bio-card-expanded {
+        padding: 30px;
+        text-align: center; /* Looks better on mobile */
+    }
+    
+    .intro-header {
+        text-align: center;
+    }
+}
+
+.clean-manifesto {
+    max-width: 850px;
+    margin-top: 30px;
+}
+
+/* Clear, readable typography */
+.main-goal-text {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: var(--text-silver);
+    font-weight: 300; /* Lighter weight is easier on the eyes in dark mode */
+    margin-bottom: 50px;
+    letter-spacing: -0.01em;
+}
+
+/* Subtle Interest Row */
+.interest-line {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.line-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent-iris);
+    letter-spacing: 2px;
+    white-space: nowrap;
+    opacity: 0.6;
+}
+
+.icon-set {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.icon-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    transition: 0.3s ease;
+}
+
+.icon-item i {
+    width: 18px;
+    height: 18px;
+    stroke-width: 1.5px; /* Thinner lines look more professional */
+}
+
+.icon-item span {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+/* Hover effect is very subtle now */
+.icon-item:hover {
+    color: var(--accent-iris);
+}
+
+/* Update this in your CSS */
+.map-dashboard { 
+    width: 100%;
+    height: 500px; /* Use a fixed pixel height for testing */
+    margin-top: 20px;
+    position: relative;
+}
+
+/* Add this if not already present */
+#map {
+    width: 100%;
+    height: 100%; /* Important: Takes height from .map-card-full */
+    min-height: 400px; /* Safety fallback */
+}
+
+.map-card-full {
+    height: 500px; /* Or whatever height fits your design */
+    position: relative;
+}
+
+/* High-tech Map Label */
+.map-label-style {
+    background: rgba(15, 15, 20, 0.8) !important;
+    border: 1px solid #8b5cf6 !important;
+    color: #fff !important;
+    font-family: 'Monospace', sans-serif !important;
+    font-size: 0.7rem !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    padding: 4px 8px !important;
+}
+
+/* Remove the little arrow from the tooltip for a cleaner look */
+.leaflet-tooltip-right::before {
+    border-right-color: #8b5cf6 !important;
+}
+
+/* --- FIREBASE INTERFACE REFINEMENTS --- */
+
+/* Form Header Style */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-iris);
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+    padding-bottom: 15px;
+    opacity: 0.8;
+}
+
+/* Loading State Animation */
+.loading-state {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 60px;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-iris);
+    border-radius: 50%;
+    animation: iris-pulse 1.5s infinite;
+}
+
+@keyframes iris-pulse {
+    0% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7); }
+    70% { transform: scale(1.2); opacity: 0.5; box-shadow: 0 0 0 10px rgba(139, 92, 246, 0); }
+    100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+}
+
+/* Responsive Form Inputs */
+/* --- FEEDBACK FORM REFINEMENT --- */
+#feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Consistent spacing */
+    width: 100%;
+}
+
+/* Container for Name and Role to sit side-by-side */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; /* Increased slightly for better visual breathing room */
+    width: 100%;
+    background: transparent; /* Ensure no background is leaking from the row */
+}
+
+#feedback-form .form-input {
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(10, 10, 12, 0.5); /* Slightly darker for better contrast */
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 8px; /* Sharper corners look more 'system-like' */
+    padding: 14px 18px;
+    color: var(--text-silver);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem; /* Slightly smaller to fit long placeholders */
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+/* Fix for the placeholder text itself */
+#feedback-form .form-input::placeholder {
+    color: var(--text-dim);
+    opacity: 0.5;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Textarea specific height */
+#feedback-form textarea.form-input {
+    min-height: 120px;
+    resize: none; /* Keeps the UI clean */
+}
+
+/* Submit Button Override to ensure pointer works */
+#feedback-form .linkedin-pill {
+    margin-top: 10px;
+    cursor: pointer;
+    border: 1px solid var(--accent-iris);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Responsive adjustment for the form row */
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Review Card Date/Timestamp */
+.log-ts {
+    margin-top: 15px;
+    font-size: 0.65rem;
+    color: var(--accent-iris);
+    opacity: 0.5;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: right;
+}
+
+/* --- ENHANCED PEER REVIEW GRID --- */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.review-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* The Hover Effect: Lift + Glow */
+.review-card:hover {
+    transform: translateY(-8px);
+    background: rgba(139, 92, 246, 0.04);
+    border-color: var(--accent-iris);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 
+                0 0 20px rgba(139, 92, 246, 0.1);
+}
+
+/* High-tech ID corner tag */
+.review-card::before {
+    content: "LOG_ENTRY";
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--accent-iris);
+    opacity: 0.4;
+    letter-spacing: 1px;
+}
+
+.review-name {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.review-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent-iris);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.review-comment {
+    color: var(--text-silver);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Subtle accent line for the card footer */
+.log-ts {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 15px;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Ensure the parent allows full width */
+#feedback-list.reviews-grid {
+    display: grid !important; 
+    /* Force 3 columns on desktop */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    width: 100%;
+    margin-top: 40px;
+    /* This prevents the cards from stretching vertically 
+       if one has more text than the others */
+    align-items: start; 
+}
+
+/* Tablet: 2 Columns */
+@media (max-width: 1100px) {
+    #feedback-list.reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: 1 Column */
+@media (max-width: 768px) {
+    #feedback-list.reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Polish for the Feedback Button */
+#feedback-form button[type="submit"] {
+    justify-content: center; /* Centers text and icon inside */
+    width: fit-content;      /* Keeps it neat on desktop */
+    min-width: 200px;
+}
+
+@media (max-width: 600px) {
+    #feedback-form button[type="submit"] {
+        width: 100%;        /* Easier to tap with thumb on mobile */
+    }
+}
+
+/* Ensure placeholder is visible but distinct */
+#feedback-form .form-input::placeholder {
+    color: var(--text-dim);
+    opacity: 0.6;
+    font-size: 0.8rem;
+    text-transform: uppercase; /* Reinforces the "system log" vibe */
+}
+
+/* Success State for the Button */
+.linkedin-pill.success-state {
+    background: rgba(34, 197, 94, 0.2) !important; /* Cyber Green */
+    border-color: #22c55e !important;
+    color: #22c55e !important;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+    pointer-events: none; /* Prevent double clicks */
+}
+
+/* Loading Spinner Animation */
+.spin {
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Optional: Shake animation if there's an error */
+.error-shake {
+    animation: shake 0.4s ease-in-out;
+    border-color: #ef4444 !important;
+    color: #ef4444 !important;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* --- GLOBAL TOAST SYSTEM --- */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(10, 10, 12, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-left: 4px solid var(--accent-iris);
+    padding: 16px 24px;
+    border-radius: 16px;
+    z-index: 10000; /* Ensures it stays above the snap-container */
+    
+    /* Initial Hidden State */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.toast.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#toast-icon {
+    color: var(--accent-iris);
+    width: 20px;
+    height: 20px;
+}
+
+.toast-msg {
+    display: flex;
+    flex-direction: column;
+}
+
+.toast-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent-iris);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#toast-body {
+    color: var(--text-silver);
+    font-size: 0.85rem;
+    margin-top: 2px;
+}
+
+/* The Countdown Progress Line */
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--accent-iris);
+    transform-origin: left;
+    border-radius: 0 0 0 16px;
+}
+
+.toast.active .toast-progress {
+    animation: toast-timer 4s linear forwards;
+}
+
+@keyframes toast-timer {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+}
